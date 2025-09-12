@@ -1,0 +1,49 @@
+{
+  "schema_id": "HN_HC",
+  "schema_name": "Hộ Chiếu",
+  "schema_description": "Danh mục trường thông tin cho Hộ chiếu",
+  "schema_definition": {
+    "type": "object",
+    "title": "Danh mục trường thông tin cho Hộ chiếu",
+    "required": [
+      "HoVaTen",
+      "SoDinhDanh",
+      "GioiTinh",
+      "NgayThangNamSinh",
+      "NoiSinh",
+      "QuocTich"
+    ],
+    "properties": {
+      "HoVaTen": {
+        "type": "string",
+        "description": "Ở trang thông tin chi tiết của Hộ chiếu, lấy thông tin ngay phía dưới cụm từ 'Họ và tên', thường được viết in hoa.\nví dụ: Trên 1 Hộ chiếu (Passport) mẫu:\nHọ và tên / Full name\nDƯƠNG THỊ NGA"
+      },
+      "SoDinhDanh": {
+        "type": "string",
+        "description": "Ở trang thông tin chi tiết của Hộ chiếu, lấy thông tin ở phía gần cuối của dòng đầu tiên, bắt đầu bằng cụm từ 'Số hộ chiếu'.\nví dụ: Trên 1 Hộ chiếu (Passport) mẫu:\nSố hộ chiếu / Passport No.\nN1234567"
+      },
+      "GioiTinh": {
+        "type": "string",
+        "description": "Ở trang thông tin chi tiết của Hộ chiếu, bên dưới dòng thông tin ngày sinh, lấy thông tin ngay phía dưới cụm từ 'Giới tính', thường được viết in hoa.\nví dụ: Trên 1 Hộ chiếu (Passport) mẫu:\nGiới tính / Sex\nNAM"
+      },
+      "NgayThangNamSinh": {
+        "type": "string",
+        "pattern": "Ngày [0-9]{1,2}/[0-9]{1,2}/[0-9]{4}",
+        "description": "Ở trang thông tin chi tiết của Hộ chiếu, bên dưới dòng thông tin quốc tịch, lấy thông tin ngay phía dưới cụm từ 'Ngày sinh', thường định dạng DD/MM/YYYY.\nví dụ: Trên 1 Hộ chiếu (Passport) mẫu:\nNgày sinh / Date of birth\n01/01/1990"
+      },
+      "NoiSinh": {
+        "type": "string",
+        "description": "Ở trang thông tin chi tiết của Hộ chiếu, bên dưới dòng thông tin quốc tịch, lấy thông tin ngay phía dưới cụm từ 'Nơi sinh', thường được viết in hoa.\nví dụ: Trên 1 Hộ chiếu (Passport) mẫu:\nNơi sinh / Place of birth\nHỒ CHÍ MINH"
+      },
+      "QuocTich": {
+        "type": "string",
+        "description": "Ở trang thông tin chi tiết của Hộ chiếu, bên dưới dòng thông tin họ tên, lấy thông tin ngay phía sau cụm từ 'Quốc tịch', bằng tiếng việt, là thông tin quốc tịch của CD, thường được viết in hoa.\nví dụ: Trên 1 Hộ chiếu (Passport) mẫu:\nQuốc tịch / Nationality         VIỆT NAM"
+      }
+    }
+  },
+  "schema_version": "v1.0",
+  "created_by": "admin_user",
+  "created_at": "2025-09-09T05:25:47.197725Z",
+  "updated_at": "2025-09-09T05:25:47.197725Z",
+  "is_active": true
+}

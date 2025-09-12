@@ -1,0 +1,19 @@
+Bước 1: Copy schema files vào container
+
+docker cp schema/ ocr-tatc-postgres:/tmp/schema/
+
+Bước 2: Copy migration script vào container
+
+docker cp migrate.sql ocr-tatc-postgres:/tmp/migrate.sql
+
+Bước 3: Chạy migration script
+
+ocker exec ocr-tatc-postgres bash -c "cd /tmp && psql -U postgres -d tatc_ocr_result -f migrate.sql"
+
+Bước 4: Verify kết quả
+
+# Kiểm tra số lượng schema đã insert
+docker exec ocr-tatc-postgres psql -U postgres -d tatc_ocr_result -c "SELECT COUNT(*) FROM schema_info;"
+
+# Liệt kê tất cả schema
+docker exec ocr-tatc-postgres psql -U postgres -d tatc_ocr_result -c "SELECT schema_id, schema_name FROM schema_info ORDER BY schema_id;"

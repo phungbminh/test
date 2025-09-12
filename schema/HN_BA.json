@@ -1,0 +1,129 @@
+{
+  "schema_id": "HN_BA",
+  "schema_name": "Bản Án",
+  "schema_description": "Danh mục trường thông tin cho Bản Án Sơ Thẩm hoặc Phúc Thẩm",
+  "schema_definition": {
+    "type": "object",
+    "title": "Danh mục trường thông tin cho Bản Án Sơ Thẩm hoặc Phúc Thẩm",
+    "required": [
+      "LaNguyenDon",
+      "LaBiDon",
+      "LinhVuc",
+      "NoiDung",
+      "SoQD",
+      "NgayQD",
+      "SoQDLQ",
+      "NgayQDLQ",
+      "CoQuanXetXu",
+      "ThongTinCongDan"
+    ],
+    "properties": {
+      "LaNguyenDon": {
+        "type": "string",
+        "description": "Về phần Nguyên đơn, các cụm từ nhận biết bao gồm 'Nguyên đơn' và thông tin Họ tên cần lấy nằm sau các danh xưng như Ông/Bà/Cô/Chú/Anh/Chị/Em/Cháu của Trang đầu tiên trong Bản án/QĐ.\nví dụ: Trong 1 Bản án mẫu:\nNguyên đơn: Anh Khúc Văn Khôi - SN 1990.\nSQ: Khu Đầu, thị trấn Hưng Nhân, huyện Hưng Hà, tỉnh Thái Bình."
+      },
+      "LaBiDon": {
+        "type": "string",
+        "description": "Về phần Bị đơn, các cụm từ nhận biết bao gồm 'Bị đơn' và thông tin Họ tên cần lấy nằm sau các danh xưng như Ông/Bà/Cô/Chú/Anh/Chị/Em/Cháu của Trang đầu tiên trong Bản án/QĐ.\nví dụ: Trong 1 Bản án mẫu:\nBị đơn: Anh Khúc Văn Khôi - SN 1990.\nSQ: Khu Đầu, thị trấn Hưng Nhân, huyện Hưng Hà, tỉnh Thái Bình."
+      },
+      "NghiaVu": {
+        "type": "string",
+        "description": "Về phần Người có nghĩa vụ liên quan, các cụm từ nhận biết bao gồm 'Người có quyền lợi và nghĩa vụ liên quan' và thông tin Họ tên cần lấy nằm sau các danh xưng như Ông/Bà/Cô/Chú/Anh/Chị/Em/Cháu của Trang đầu tiên trong Bản án/QĐ.\nví dụ: Trong 1 Bản án mẫu:\nNgười có quyền lợi nghĩa vụ: Anh Khúc Văn Khôi - SN 1990.\nSQ: Khu Đầu, thị trấn Hưng Nhân, huyện Hưng Hà, tỉnh Thái Bình."
+      },
+      "LinhVuc": {
+        "type": "string",
+        "description": "Thông tin này lấy ra từ sau cụm từ 'án số:'. Cụm từ này nằm ở góc trên, bên trái của Trang đầu tiên trong Bản án/QĐ. Sau đó, cắt cụm từ này ra, chỉ lấy chuỗi ký tự phía sau dấu \"/\" lần thứ 2 thì chính là thông tin Lĩnh vực cần lấy.\nví dụ: Trong 1 Bản án mẫu:\nÁn số: 05/2015/HNGĐ-ST"
+      },
+      "NoiDung": {
+        "type": "string",
+        "description": "Thông tin này lấy ra ngay sau cụm từ \"V/v:\". Cụm từ này nằm ở góc trên, bên trái của Trang đầu tiên trong Bản án/QĐ, ngay phía dưới số Bản án/QĐ và ngày phát hành Bản án/QĐ. Ngoài ra, có những Bản án/QĐ sẽ dùng cụm từ \"Về việc\" ngay trong tiêu đề của Bản án/QĐ.\nví dụ: Trong 1 Bản án mẫu:\nV/v: Tranh chấp hôn nhân và gia đình"
+      },
+      "AnPhi": {
+        "type": "string",
+        "description": "Từ trang có phần QUYẾT ĐỊNH trở đi, tìm cụm từ 'Về án phí' hoặc đề cập 'Án phí' của phiên tòa thì cắt lấy tất cả số tiền ngay liền trước hoặc liền sau cụm từ 'án phí' sẽ nhận được thông tin về phần án phí đã được Tòa ra quyết định.\nví dụ: Trong 1 Bản án mẫu:\nChị Lý Thị Hoa phải chịu 200.000đ án phí ly hôn.\n...\nAnh Nguyễn Văn Tuấn phải chịu 10.110.000đ án phí chia tài sản."
+      },
+      "SoQD": {
+        "type": "string",
+        "description": "Số bản án hoặc quyết định. Lấy từ cụm \"Bản án số:\" ở trang đầu tiên hoặc từ cụm \"bản án hình sự ... số ...\"."
+      },
+      "NgayQD": {
+        "type": "string",
+        "pattern": "Ngày [0-9]{1,2}/[0-9]{1,2}/[0-9]{4}",
+        "description": "Ngày của bản án hoặc quyết định. Lấy từ cụm \"Ngày DD/MM/YYYY\" dưới \"Bản án số:\" hoặc từ cụm \"bản án hình sự ... ngày ...\"."
+      },
+      "SoQDLQ": {
+        "type": "string",
+        "description": "Số QĐ liên quan đến bản án hiện tại, nằm trong cụm bắt đầu bằng 'bản án hình sự ... số ...'."
+      },
+      "NgayQDLQ": {
+        "type": "string",
+        "pattern": "Ngày [0-9]{1,2}/[0-9]{1,2}/[0-9]{4}",
+        "description": "Ngày QĐ liên quan đến bản án hiện tại, nằm trong cụm bắt đầu bằng 'bản án hình sự ... ngày ...'."
+      },
+      "QuyetDinh": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "DieuLuatApDung",
+            "HinhPhatChinh"
+          ],
+          "properties": {
+            "TenBiCao": {
+              "type": "string",
+              "pattern": "Điều [0-9]+.*",
+              "description": "Tên của bị cáo được Quyết Định"
+            },
+            "HinhPhatChinh": {
+              "type": "string",
+              "pattern": "Xử phạt bị cáo .* (tù|cải tạo|phạt tiền).*",
+              "description": "Hình phạt chính. Ví dụ: 'Xử phạt bị cáo Nguyễn Văn A 5 năm tù'."
+            },
+            "DieuLuatApDung": {
+              "type": "string",
+              "pattern": "Điều [0-9]+.*",
+              "description": "Điều luật được áp dụng trong quyết định này. Ví dụ: 'Điều 46 Bộ luật Hình sự'."
+            }
+          }
+        },
+        "description": "Danh sách thông tin trong phần 'QUYẾT ĐỊNH' cuối bản án. Mỗi phần tử chứa thông tin tên điều luật áp dụng và hình phạt chính tương ứng cho từng bị cáo"
+      },
+      "CoQuanXetXu": {
+        "type": "string",
+        "description": "Tên cơ quan xét xử. Thông tin này lấy ra từ 2 dòng chữ viết in hoa đầu tiên, nằm ở góc trên cùng, bên trái của Trang đầu tiên trong Bản án/QĐ.\nví dụ: Trong 1 Bản án mẫu:\nTÒA ÁN NHÂN DÂN TỐI CAO\nTÒA PHÚC THẨM TẠI HÀ NỘI"
+      },
+      "ThongTinCongDan": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "HoVaTen",
+            "NgayThangNamSinh",
+            "NoiThuongTru"
+          ],
+          "properties": {
+            "HoVaTen": {
+              "type": "string",
+              "description": "Họ và tên, phải nằm gần cụm 'bị cáo' hoặc 'ông/bà'."
+            },
+            "NoiThuongTru": {
+              "type": "string",
+              "description": "Nơi thường trú (HKTT), bắt đầu bằng cụm 'HKTT' hoặc 'trú tại'."
+            },
+            "NgayThangNamSinh": {
+              "type": "string",
+              "pattern": "sinh năm [0-9]{4}",
+              "description": "Năm sinh, bắt đầu bằng cụm 'sinh năm'."
+            }
+          }
+        },
+        "description": "Từ trang đầu tiên của Bản án/QĐ trở đi, bắt nguồn từ cụm từ 'Nguyên đơn' cho tới trước phần \"NHẬN THẤY\" thì cần liệt kê tuần tự tất cả các Thông tin của CD có liên quan đến vụ án."
+      }
+    }
+  },
+  "schema_version": "v1.0",
+  "created_by": "admin_user",
+  "created_at": "2025-09-09T05:25:39.024869Z",
+  "updated_at": "2025-09-09T05:25:39.024869Z",
+  "is_active": true
+}

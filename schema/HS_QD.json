@@ -1,0 +1,72 @@
+{
+  "schema_id": "HS_QD",
+  "schema_name": "Quyết Định",
+  "schema_description": "Danh mục trường thông tin cho Quyết Định",
+  "schema_definition": {
+    "type": "object",
+    "title": "Danh mục trường thông tin cho Quyết Định",
+    "required": [
+      "SoQD",
+      "NgayQD",
+      "TenToaAn_RaQD",
+      "ThongTinCD"
+    ],
+    "properties": {
+      "SoQD": {
+        "type": "string",
+        "description": "Thông tin này lấy ra từ sau cụm từ 'Số:'. Cụm từ này nằm ở góc trên, bên trái của Trang đầu tiên trong Quyết Định.\nVí dụ: Trong 1 QĐ mẫu: Số: 60/2014/HSST-QĐ"
+      },
+      "NgayQD": {
+        "type": "string",
+        "description": "Thông tin ngày ra Quyết định nằm ở góc trên, bên phải của Trang đầu tiên trong Quyết Định. Cụm từ này có định dạng '[Tỉnh/TP ra QĐ], {ngày DD tháng MM năm YYYY}'. Tuy nhiên, chỉ lấy ra thông tin ngày ra QĐ với cụm từ trong dấu {...} hoặc cụm từ sau dấu phẩy trong định dạng trên.\nVí dụ: Trong 1 QĐ mẫu: Hà Nội, ngày 11 tháng 6 năm 2014"
+      },
+      "SoQD_LQ": {
+        "type": "string",
+        "description": "Trong Trang đầu tiên của Quyết định, sau các cụm từ khóa \"Căn cứ vào ...\", đoạn văn tiếp theo sẽ đề cập đến Số QĐ liên quan đến Quyết định hiện tại. Số hồ sơ thụ lý có liên quan cần lấy nằm trong cụm từ mà bắt đầu bằng 'thụ lý số {Số hồ sơ thụ lý}'. \nví dụ: Trong 1 QĐ mẫu: vụ án hình sự sơ thẩm đã thụ lý số 276/2014/HSST ngày 28 tháng 5 năm 2014"
+      },
+      "NgayQD_LQ": {
+        "type": "string",
+        "description": "Trong Trang đầu tiên của Quyết định, sau các cụm từ khóa \"Căn cứ vào ...\", đoạn văn tiếp theo sẽ đề cập đến Ngày QĐ liên quan đến Quyết định hiện tại. Ngày có liên quan cần lấy nằm trong cụm từ {...} mà bắt đầu bằng 'thụ lý số [Số hồ sơ thụ lý] {ngày DD tháng MM năm YYYY}'.\nVí dụ: Trong 1 QĐ mẫu: vụ án hình sự sơ thẩm đã thụ lý số 276/2014/HSST ngày 28 tháng 5 năm 2015"
+      },
+      "ThongTinCD": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "HoVaTen",
+            "NgayThangNamSinh",
+            "NoiThuongTru"
+          ],
+          "properties": {
+            "HoVaTen": {
+              "type": "string",
+              "description": "Trong trang đầu tiên của Quyết Định, phía dưới phần \"QUYẾT ĐỊNH\" sẽ mô tả Thông tin cơ bản của Công dân. Và cụm từ khóa 'đối với bị cáo', trước dấu phẩy (,) sẽ là Họ tên của Công dân. \nví dụ: Trong 1 Quyết định mẫu: Khúc Văn Khôi, sinh năm 1990; ĐKHKTT: Khu Đầu, thị trấn Hưng Nhân, huyện Hưng Hà, tỉnh Thái Bình; chỗ ở hiện nay: Không ổn định;"
+            },
+            "NoiOHienTai": {
+              "type": "string",
+              "description": "Trong trang đầu tiên của Quyết Định, phía dưới phần \"QUYẾT ĐỊNH\" sẽ mô tả Thông tin cơ bản của Công dân. Và cụm từ bắt đầu 'chỗ ở hiện tại: {Nơi ở hiện tại của Công dân};'\nví dụ: Trong 1 Quyết định mẫu: Khúc Văn Khôi, sinh năm 1990; ĐKHKTT: Khu Đầu, thị trấn Hưng Nhân, huyện Hưng Hà, tỉnh Thái Bình; chỗ ở hiện nay: Không ổn định;"
+            },
+            "NoiThuongTru": {
+              "type": "string",
+              "description": "Trong trang đầu tiên của Quyết Định, phía dưới phần \"QUYẾT ĐỊNH\" sẽ mô tả Thông tin cơ bản của Công dân. Và cụm từ bắt đầu 'HKTT: {Hộ khẩu thường trú của Công dân};' hoặc 'trú quán: {Hộ khẩu thường trú của Công dân};'\nví dụ: Trong 1 Quyết định mẫu:Khúc Văn Khôi, sinh năm 1990; ĐKHKTT: Khu Đầu, thị trấn Hưng Nhân, huyện Hưng Hà, tỉnh Thái Bình; chỗ ở hiện nay: Không ổn định;"
+            },
+            "NgayThangNamSinh": {
+              "type": "string",
+              "description": "Trong trang đầu tiên của Quyết Định, phía dưới phần \"QUYẾT ĐỊNH\" sẽ mô tả Thông tin cơ bản của Công dân. Và cụm từ bắt đầu 'sinh năm {Năm sinh của Công dân}' hoặc 'sanh năm {Năm sinh của Công dân}': ví dụ: Trong 1 Quyết định mẫu: Khúc Văn Khôi, sinh năm 1990; ĐKHKTT: Khu Đầu, thị trấn Hưng Nhân, huyện Hưng Hà, tỉnh Thái Bình; chỗ ở hiện nay: Không ổn định;"
+            }
+          }
+        },
+        "description": "Từ trang đầu tiên của Bản án/QĐ trở đi, sau phần giới thiệu Hội đồng xét xử và ngày giờ xét xử, địa điểm xét xử cũng như số QĐ liên quan với vụ án hiện tại, đoạn văn tiếp theo sẽ mô tả Thông tin cơ bản của tất cả Công dân có liên quan tới Bản án/QĐ thì cần liệt kê tuần tự."
+      },
+      "TenToaAn_RaQD": {
+        "type": "string",
+        "description": "Thông tin này lấy ra từ 2 dòng chữ viết in hoa đầu tiên, nằm ở góc trên cùng, bên trái của Trang đầu tiên trong Bản án/QĐ.\nví dụ: Trong 1 QĐ mẫu: TÒA ÁN NHÂN DÂN TỐI CAO THÀNH PHỐ HÀ NỘI"
+      }
+    }
+  },
+  "schema_version": "v1.0",
+  "created_by": "admin_user",
+  "created_at": "2025-09-09T05:25:47.197725Z",
+  "updated_at": "2025-09-09T05:25:47.197725Z",
+  "is_active": true
+}

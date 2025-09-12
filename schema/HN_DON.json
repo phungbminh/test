@@ -1,0 +1,43 @@
+{
+  "schema_id": "HN_DON",
+  "schema_name": "Đơn khởi kiện",
+  "schema_description": "Danh mục trường thông tin cho Đơn khởi kiện",
+  "schema_definition": {
+    "type": "object",
+    "title": "Danh mục trường thông tin cho Đơn khởi kiện",
+    "required": [
+      "LaNguyenDon",
+      "LaBiDon",
+      "NghiaVu",
+      "NoiDung",
+      "CoQuanXetXu"
+    ],
+    "properties": {
+      "LaNguyenDon": {
+        "type": "string",
+        "description": "Về phần Người khởi kiện, các cụm từ nhận biết bao gồm 'Tên tôi là' hoặc 'Tôi tên là' và Họ tên Nguyên đơn cần lấy nằm ngay sau cụm từ này trong trang đầu tiên trong Đơn khởi kiện.\nví dụ: Trong 1 Đơn khởi kiện mẫu:\nTên tôi là Khúc Văn Khôi - Sinh năm 1990\nQuê quán: Khu Đầu, thị trấn Hưng Nhân, huyện Hưng Hà, tỉnh Thái Bình."
+      },
+      "LaBiDon": {
+        "type": "string",
+        "description": "Về phần Người bị kiện, các cụm từ nhận biết bao gồm 'kết hôn' và Họ tên cần lấy nằm sau các danh xưng như Ông/Bà/Cô/Chú/Anh/Chị/Em/Cháu của Trang đầu tiên trong Đơn khởi kiện.\nví dụ: Trong 1 Đơn khởi kiện mẫu:\nTôi là Lý Thị Hoa đã kết hôn với anh Nguyễn Văn Tuấn sinh năm 1967 người cùng thôn."
+      },
+      "NghiaVu": {
+        "type": "string",
+        "description": "Về phần Người có nghĩa vụ liên quan, các cụm từ nhận biết bao gồm 'ủy quyền' hoặc thông tin về con cái và thông tin Họ tên cần lấy nằm sau các danh xưng như Ông/Bà/Cô/Chú/Anh/Chị/Em/Cháu của Trang đầu tiên trong Đơn khởi kiện.\nví dụ: Trong 1 Đơn khởi kiện mẫu:\n..., trong quá trình chung sống hai chúng tôi đã sinh được 3 đứa con.\n1. Nguyễn Văn Phú - Sinh năm 1993\n2. Nguyễn Thị Ngân - Sinh năm 1996\n3. Nguyễn Văn Hải - Sinh năm 2002"
+      },
+      "NoiDung": {
+        "type": "string",
+        "description": "Trong trang đầu tiên của Đơn khởi kiện, xem xét trong tiêu đề \"ĐƠN XIN\" có cụm từ 'Đơn xin {Nội dung khởi kiện}' thì phần thông tin trong {…} chính là nội dung cần lấy.\nví dụ: Trong 1 Đơn khởi kiện mẫu:\nĐƠN XIN LY HÔN"
+      },
+      "CoQuanXetXu": {
+        "type": "string",
+        "description": "Tên cơ quan xét xử. Thông tin này lấy ra ngay sau cụm từ 'Kính gửi: {Tên Tòa án thụ lý Đơn khởi kiện}', thường nằm chính giữa trang đầu tiên và phía sau tiêu đề của Đơn khởi kiện.\nví dụ: Trong 1 Đơn khởi kiện mẫu:\nKính gửi: TÒA ÁN NHÂN DÂN QUẬN HOÀN KIẾM - THÀNH PHỐ HÀ NỘI"
+      }
+    }
+  },
+  "schema_version": "v1.0",
+  "created_by": "admin_user",
+  "created_at": "2025-09-09T05:25:39.024869Z",
+  "updated_at": "2025-09-09T05:25:39.024869Z",
+  "is_active": true
+}

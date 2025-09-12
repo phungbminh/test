@@ -1,0 +1,64 @@
+{
+  "schema_id": "HN_CCCD",
+  "schema_name": "CCCD_CMND",
+  "schema_description": "Danh mục trường thông tin cho CCCD/CMND",
+  "schema_definition": {
+    "type": "object",
+    "title": "Danh mục trường thông tin cho CCCD/CMND",
+    "required": [
+      "HoVaTen",
+      "SoDinhDanh",
+      "GioiTinh",
+      "NgayThangNamSinh",
+      "QuocTich",
+      "QueQuan",
+      "DanToc",
+      "NoiThuongTru",
+      "TonGiao"
+    ],
+    "properties": {
+      "HoVaTen": {
+        "type": "string",
+        "description": "Trên mặt trước của CCCD/CMND, dòng đầu tiên bên dưới dòng số CCCD/CMND, có cụm từ 'Họ tên' và thường được viết in hoa. Lấy thông tin Họ tên ngay sau cụm từ này, bằng tiếng việt. \nví dụ: Trên 1 CCCD/CMND mẫu: \nGIẤY CHỨNG MINH NHÂN DÂN\nSỐ 121315849\nHọ tên DƯƠNG THỊ NGA"
+      },
+      "SoDinhDanh": {
+        "type": "string",
+        "description": "Ngay phía dưới dòng \"GIẤY CHỨNG MINH NHÂN DÂN\" hoặc \"CĂN CƯỚC CÔNG DÂN\" có cụm từ 'SỐ' và ngay phía sau là dãy số được in đậm trên mặt trước của CCCD/CMND. Lấy thông tin ngay phía sau cụm từ này chính là số định danh cá nhân của CD.\nví dụ: Trên 1 mẫu CCCD/CMND:\nGIẤY CHỨNG MINH NHÂN DÂN\nSỐ 123456789"
+      },
+      "GioiTinh": {
+        "type": "string",
+        "description": "Trên mặt trước của CCCD/CMND, dòng bên dưới dòng ngày sinh, có cụm từ 'Giới tính'. Lấy thông tin ngay sau cụm từ này nhưng trước cụm từ 'Quốc tịch', bằng tiếng việt, chính là giới tính của Công dân.\nví dụ: Trên 1 CCCD/CMND mẫu:\nCĂN CƯỚC CÔNG DÂN\nSỐ 123456789101\nHọ tên DƯƠNG THỊ NGA\nSinh ngày 01-01-1979\nGiới tính Nữ           Quốc tịch Việt Nam"
+      },
+      "NgayThangNamSinh": {
+        "type": "string",
+        "pattern": "Ngày [0-9]{1,2}/[0-9]{1,2}/[0-9]{4}",
+        "description": "Trên mặt trước của CCCD/CMND, dòng bên dưới dòng Họ tên, có cụm từ 'Sinh ngày' và thường được định dạng DD/MM/YYYY hoặc DD-MM-YYYY. Lấy thông tin ngay phía sau cụm từ này, bằng tiếng việt, chính là ngày sinh của CD.\nví dụ: Trên 1 CCCD/CMND mẫu:\nGIẤY CHỨNG MINH NHÂN DÂN\nSỐ 123456789\nHọ tên DƯƠNG THỊ NGA\nSinh ngày 01-01-1979"
+      },
+      "QuocTich": {
+        "type": "string",
+        "description": "Trên mặt trước của CCCD/CMND, dòng kế bên giới tính, có cụm từ 'Quốc tịch'. Lấy thông tin ngay sau cụm từ này, bằng tiếng việt, chính là quốc tịch của Công dân.\nví dụ: Trên 1 CCCD/CMND mẫu:\nCĂN CƯỚC CÔNG DÂN\nSỐ 123456789101\nHọ tên DƯƠNG THỊ NGA\nSinh ngày 01-01-1979\nGiới tính Nữ           Quốc tịch Việt Nam"
+      },
+      "QueQuan": {
+        "type": "string",
+        "description": "Trên mặt trước của CCCD/CMND, dòng bên dưới dòng ngày sinh hoặc giới tính, có cụm từ 'Nguyên quán' hoặc 'Quê quán'. Lấy thông tin ngay sau cụm từ này, bằng tiếng việt, là nguyên quán của Công dân, thường quê quán của cha mẹ CD.\nví dụ: Trên 1 CCCD/CMND mẫu:\nGIẤY CHỨNG MINH NHÂN DÂN\nSỐ 123456789\nHọ tên DƯƠNG THỊ NGA\nSinh ngày 01-01-1979\nNguyên quán Xương Lam, Lạng Giang, Bắc Ninh"
+      },
+      "DanToc": {
+        "type": "string",
+        "description": "Trên mặt sau của CCCD/CMND, dòng đầu tiên trên cùng, có cụm từ 'Dân tộc'. Lấy thông tin ngay sau cụm từ này, bằng tiếng việt, là Dân tộc của Công dân.\nví dụ: Trên 1 CCCD/CMND mẫu:\nDân tộc Kinh"
+      },
+      "NoiThuongTru": {
+        "type": "string",
+        "description": "Trên mặt trước của CCCD/CMND, dòng bên dưới dòng quê quán, có cụm từ 'Hộ khẩu thường trú'. Lấy thông tin ngay sau cụm từ này, bằng tiếng việt, là địa chỉ đăng ký thường trú của Công dân.\nví dụ: Trên 1 CCCD/CMND mẫu:\nGIẤY CHỨNG MINH NHÂN DÂN\nSỐ 123456789\nHọ tên DƯƠNG THỊ NGA\nSinh ngày 01-01-1979\nNguyên quán Xương Lam, Lạng Giang, Bắc Ninh\nNơi ĐKHK thường trú Nguyên quán Xương Lam, Lạng Giang, Bắc Ninh"
+      },
+      "TonGiao": {
+        "type": "string",
+        "description": "Trên mặt sau của CCCD/CMND, dòng đầu tiên trên cùng, ngay sau Dân tộc và bắt đầu bằng cụm từ 'Tôn giáo'. Lấy thông tin ngay sau cụm từ này, bằng tiếng việt, chính là Tôn giáo của Công dân.\nví dụ: Trên 1 CCCD/CMND mẫu:\nDân tộc Kinh        Tôn giáo Thiên chúa"
+      }
+    }
+  },
+  "schema_version": "v1.0",
+  "created_by": "admin_user",
+  "created_at": "2025-09-09T05:25:47.197725Z",
+  "updated_at": "2025-09-09T05:25:47.197725Z",
+  "is_active": true
+}
